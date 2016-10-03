@@ -1,0 +1,61 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jonathan Todos List</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+<br>
+<br>
+<br>
+
+
+<div class="add-todo-form text-center">
+  <h1>My todos list</h1>
+  <h3>What needs to be done?</h3>
+  <h4>Tasks remaining for the day: {{ remaining }} out of {{todos.length}}</h4>
+
+  <div class="form-group">
+    <input class="form-control input-lg" placeholder="add todos..." autofocus #newtodo>
+    <br>
+    <button (click)="addTodo(newtodo, isCompleted)" class="btn btn-primary btn-block">Create</button>
+  </div>
+</div>
+
+
+<!-- This div will always be hidden as long there is no todos, hence hiden when todos.length > 0 -->
+<div class="todo-list">
+    <div id="emptybox" class="alert-info text-center"[hidden]="todos.length > 0">
+      <h2 id="emptytext">There are no pending tasks</h2>
+      <p id="instructions">Please key in your tasks for the day and checked whatever tasks that has been completed</p>
+      <img src="http://tryangular2.github.io/img/angular-shield.png">
+    </div>
+
+
+    <div *ngFor="let todo of todos">
+    <div class="col-md-1">
+    <input type="checkbox" [(ngModel)]="todo.isCompleted">
+    </div>
+
+    <div class="col-md-7">
+         <p><span class="done-{{todo.isCompleted}}">{{todo.text}}</span></p>
+    </div>
+
+    <div class="col-md-4 btns">
+        <input type="button" class="btn btn-danger pull-right" (click)="removeTodo(todo)" value="Delete">
+    </div>
+  </div>
+
+  <footer>
+      <p>&copy; WDI 4 Individual Assignment done with Angular 2, 2016</p>
+    </footer>

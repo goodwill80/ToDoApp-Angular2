@@ -1,0 +1,26 @@
+.btns input {
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
+h3{
+  color:yellow;
+}
+
+h1{
+  color:white;
+}
+
+h4{
+  color:grey;
+}
+
+.done-true {
+      text-decoration: line-through;
+      color: grey;
+    }
+
+p{
+  color: white;
+  font-size: 18px;
+}
